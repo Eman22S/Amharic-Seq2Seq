@@ -338,7 +338,7 @@ class Tester(Solver):
         self.asr_model.clear_att()
         self.asr_model = self.asr_model.to(self.device)
         self.verbose('Checking models performance on dev set '+str(self.config['solver']['dev_set'])+'...')
-        self.valid()
+        #self.valid()
         self.asr_model = self.asr_model.to('cpu') # move origin model to cpu, clone it to GPU for each thread
 
     def exec(self):

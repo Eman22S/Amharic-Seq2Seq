@@ -12,8 +12,8 @@ torch.backends.cudnn.deterministic = True
 
 # Arguments
 parser = argparse.ArgumentParser(description='Training E2E asr.')
-#parser.add_argument('--file',type=str, help="Path to audio file")
-parser.add_argument('--config', type=str, help='Path to experiment config.')
+parser.add_argument('--myname', type=str)
+parser.add_argument('--config', type=str, default='config/alffa_example.yaml', help='Path to experiment config.')
 parser.add_argument('--name', default=None, type=str, help='Name for logging.')
 parser.add_argument('--logdir', default='log/', type=str, help='Logging path.', required=False)
 parser.add_argument('--ckpdir', default='result/', type=str, help='Checkpoint/Result path.', required=False)
@@ -28,7 +28,8 @@ paras = parser.parse_args()
 setattr(paras,'gpu',not paras.cpu)
 setattr(paras,'verbose',not paras.no_msg)
 config = yaml.load(open(paras.config,'r'))
-
+paras.myname="Eman"
+print(paras.myname)
 random.seed(paras.seed)
 
 np.random.seed(paras.seed)
@@ -37,7 +38,6 @@ if torch.cuda.is_available(): torch.cuda.manual_seed_all(paras.seed)
 
 filename = 'tr_5792_tr58093.npy'
 solver = Solver(config,paras)
-solver.load_data()
 solver.set_model()
 result = solver.exec_file(filename)
 print(result)
