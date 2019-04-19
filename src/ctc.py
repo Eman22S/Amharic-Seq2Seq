@@ -11,8 +11,6 @@ class CTCPrefixScore():
         self.logzero = -100000000.0
         self.blank = 0
         self.eos = 1
-        print(x)
-        print(type(x))
         self.x = x.cpu().numpy()[0]
         self.odim = x.shape[-1]
         self.input_length = len(self.x)
