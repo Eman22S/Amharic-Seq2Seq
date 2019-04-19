@@ -7,8 +7,9 @@ parser = argparse.ArgumentParser(description='Evaluate decoding result.')
 parser.add_argument('--file', type=str, help='Path to decode result file.')
 paras = parser.parse_args()
 
+print(paras.file)
                         
-decode = pd.read_csv(paras.file,sep='\t',header=None)
+decode = pd.read_csv(paras.file,header=None, sep="\t")
 truth = decode[0].tolist()
 pred = decode[1].tolist()
 cer = []
