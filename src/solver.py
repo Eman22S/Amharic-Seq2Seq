@@ -381,10 +381,12 @@ class Tester(Solver):
 
         else:
             best_hyp = self.mapper.translate(hyps[0].outIndex,return_string=True)
-            return print(best_hyp+'\n')
+
             with open(os.path.join(self.ckpdir, 'prediction.txt'), 'w') as f:
                 best_hyp = self.mapper.translate(hyps[0].outIndex, return_string=True)
                 f.write(best_hyp + '\n')
+
+            return print(best_hyp + '\n')
 
             # N best
             # for hyp in hyps:
