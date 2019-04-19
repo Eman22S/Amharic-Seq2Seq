@@ -40,5 +40,5 @@ def transcript(filename):
     result = solver.exec_file(filename)
     return result
 
-res = transcript('tr_5792_tr58093.npy')
+res = transcript('01_d501021.npy')
 print(res)
